@@ -50,8 +50,8 @@ function singleRound(playerSelection, computerSelection) {
 function game(){
     let player_count = 0;
     let cpu_count = 0;
-
-    for (let i = 0; i < 5; i++){
+    let game_count = 1;
+    for (let i = 0; i < game_count; i++){
         let player_choice = prompt("Rock, paper, or scissors?");
         let result = singleRound(player_choice, getComputerChoice());
         alert(result);
@@ -64,10 +64,10 @@ function game(){
     }
 
     if (player_count > cpu_count) {
-        alert(`You won! You won ${player_count} and the computer won ${cpu_count} out of 5`)
+        alert(`You won! You won ${player_count} and the computer won ${cpu_count} out of ${game_count}`)
     }
     else if (player_count < cpu_count){
-        alert(`You lost! You won ${player_count} and the computer won ${cpu_count} out of 5`)
+        alert(`You lost! You won ${player_count} and the computer won ${cpu_count} out of ${game_count}`)
     }
     else {
         alert(`You tied! You and the computer both won ${player_count}`)
@@ -78,4 +78,62 @@ console.log(getComputerChoice());
 
 console.log(singleRound("Paper", getComputerChoice()))*/
 
-game()
+//game()
+
+// BUTTON LOGIC
+let button_list = document.querySelectorAll('button');
+
+let rock_button = button_list[0];
+let paper_button = button_list[1];
+let scissors_button = button_list[2];
+
+let player_count = 0;
+let cpu_count = 0;
+
+let round_result = document.getElementById('result');
+let player_results = document.getElementById('playerCount');
+let cpu_results = document.getElementById('cpuCount');
+
+rock_button.addEventListener('click', rockClick);
+paper_button.addEventListener('click', paperClick);
+scissors_button.addEventListener('click', scissorsClick);
+
+function winner(result) {
+    if (result.charAt(4) == "w"){
+        player_count += 1;
+        player_results.innerText = `${player_count}`;
+    }
+    else if (result.charAt(4) == "l") {
+        cpu_count += 1;
+        cpu_results.innerText = `${cpu_count}`;
+    }
+    
+    if (player_count == 5){
+        let new_div = document.createElement('div');
+        new_div.id = 'winner';
+        let winner_text = document.createTextNode(`You won! You won ${player_count} and the computer won ${cpu_count} out of ${game_count}`);
+        new_div.appendChild(newDivText);
+
+        let container = document.querySelector('.results');
+        let first = document.querySelector('.playerResults');
+        container.insertBefore(new_div, first);
+
+    }
+}
+function rockClick() {
+    let result = singleRound('rock', getComputerChoice());
+    console.log(result);
+    winner(result);
+}
+
+function paperClick() {
+    let result = singleRound('paper', getComputerChoice());
+    console.log(result);
+    winner(result);
+}
+
+function scissorsClick() {
+    let result = singleRound('scissors', getComputerChoice());
+    console.log(result);
+    winner(result);
+}
