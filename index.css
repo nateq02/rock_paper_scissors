@@ -1,0 +1,55 @@
+* {
+    background-color: #FBEEC1;
+}
+
+h1, h3{
+    color: #659DBD;
+    font-family: 'Caveat';
+    font-size: 75px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+h3 {
+    font-size: 40px;
+    margin-top: 5px;
+    color: #DAAD86;
+}
+
+.button_group{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex: 1;
+}
+
+button{
+    border: none;
+}
+
+button img {
+    display: flex;
+    flex: 1;
+    height: 250px;
+    width: 250px;
+}
+
+.results {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.playerResults, .cpuResults {
+    font-family: 'Caveat';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.playerResults p, .cpuResults p {
+    color: #659DBD;
+    font-size: 35px;
+    margin: 5px; 
+}

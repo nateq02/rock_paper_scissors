@@ -104,7 +104,7 @@ function winner(result) {
         if (player_count == 5){
             player_count = 0;
             cpu_count = 0;
-            alert("Player Won!");
+            alert("You Win!");
         };
         playerCount.innerText = `${player_count}`;
         cpuCount.innerText = `${cpu_count}`;
