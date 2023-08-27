@@ -107,19 +107,20 @@ function winner(result) {
         cpu_count += 1;
         cpu_results.innerText = `${cpu_count}`;
     }
-    
+
     if (player_count == 5){
-        let new_div = document.createElement('div');
+        /*let new_div = document.createElement('div');
         new_div.id = 'winner';
-        let winner_text = document.createTextNode(`You won! You won ${player_count} and the computer won ${cpu_count} out of ${game_count}`);
-        new_div.appendChild(newDivText);
+        let winnerText = document.createTextNode(`You won! You won ${player_count} and the computer won ${cpu_count} out of ${game_count}`);
+        new_div.appendChild(winnerText);
 
         let container = document.querySelector('.results');
-        let first = document.querySelector('.playerResults');
-        container.insertBefore(new_div, first);
-
+        let first = document.querySelector('#result');
+        container.insertBefore(new_div, first);*/
+        alert("Player Won!")
     }
 }
+
 function rockClick() {
     let result = singleRound('rock', getComputerChoice());
     console.log(result);
