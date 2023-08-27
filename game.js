@@ -101,23 +101,22 @@ scissors_button.addEventListener('click', scissorsClick);
 function winner(result) {
     if (result.charAt(4) == "w"){
         player_count += 1;
-        player_results.innerText = `${player_count}`;
+        if (player_count == 5){
+            player_count = 0;
+            cpu_count = 0;
+            alert("Player Won!");
+        };
+        playerCount.innerText = `${player_count}`;
+        cpuCount.innerText = `${cpu_count}`;
     }
     else if (result.charAt(4) == "l") {
         cpu_count += 1;
-        cpu_results.innerText = `${cpu_count}`;
-    }
-
-    if (player_count == 5){
-        /*let new_div = document.createElement('div');
-        new_div.id = 'winner';
-        let winnerText = document.createTextNode(`You won! You won ${player_count} and the computer won ${cpu_count} out of ${game_count}`);
-        new_div.appendChild(winnerText);
-
-        let container = document.querySelector('.results');
-        let first = document.querySelector('#result');
-        container.insertBefore(new_div, first);*/
-        alert("Player Won!")
+        if (cpu_count == 5){
+            player_count, cpu_count = 0;
+            alert("Computer Won!");
+        };
+        playerCount.innerText = `${player_count}`
+        cpuCount.innerText = `${cpu_count}`;
     }
 }
 
